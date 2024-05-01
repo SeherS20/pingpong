@@ -22,10 +22,9 @@ rightWristX = 0;
 scoreRightWrist = 0;
 
 game_status = "";
-
  function preload() {
-  ball_touch_paddel = loadSound("ball_touch_paddel.wav");
-  missed = loadSound("missed.wav");
+  ball_touch = loadSound("ball_touch_paddel.wav")
+  ball_miss = loadSound("missed.wav")
 }
 
 function setup(){
@@ -154,12 +153,12 @@ function move(){
   if (ball.x-2.5*ball.r/2< 0){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5; 
-    ball_touch_paddel.play();
+    ball_touch.play();
     playerscore++;
   }
   else{
     pcscore++;
-    missed.play();
+    ball_miss.play();
     reset();
     navigator.vibrate(100);
   }
